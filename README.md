@@ -89,7 +89,7 @@ deepspeed --include=localhost:"$GPU_IDX" src/main.py --fp16 \
 ```
 
 # Acknowledgements
-The code is primarily adapted from the summarization example from [transformers](https://github.com/huggingface/transformers). We also borrowed code [FactCC](https://github.com/salesforce/factCC), and [info-nce-pytorch](https://github.com/RElbers/info-nce-pytorch).
+The code is primarily adapted from the summarization example from [transformers](https://github.com/huggingface/transformers) and [PEGASUS](https://github.com/google-research/pegasus). We also borrowed code [FactCC](https://github.com/salesforce/factCC), and [info-nce-pytorch](https://github.com/RElbers/info-nce-pytorch).
 
 # Reference
 ```BibTex
