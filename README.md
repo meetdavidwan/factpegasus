@@ -1,16 +1,19 @@
-# FactPEGASUS: Factuality-Aware Pre-training and Fine-tuning for Abstractive Summarization 
+# FactPEGASUS: Factuality-Aware Pre-training and Fine-tuning for Abstractive Summarization (NAACL 2022)
 
 This repository contains PyTorch code and pre-trained models for FactPEGASUS.
 
-Paper Link: Soon
+- Authors: [David Wan](https://meetdavidwan.github.io/) and [Mohit Bansal](https://www.cs.unc.edu/~mbansal/) (UNC Chapel Hill)
+
+- [Paper](https://arxiv.org/abs/2205.07830)
 
 ## Intallation and Dependencies
-- PyTorch
-- datasets
-- transformers
-- deepspeed
-- nltk
-- rouge_score
+- Python 3.8
+- PyTorch 1.10.2
+- datasets 2.0.0
+- transformers 4.17.0
+- deepspeed 0.6.4
+- nltk 3.7
+- rouge_score 0.0.4
 
 ## Fine-tuning
 ### Data
@@ -83,4 +86,17 @@ deepspeed --include=localhost:"$GPU_IDX" src/main.py --fp16 \
 --warmup_steps 20000 --save_steps 5000 \
 --max_source_length 512 --max_target_length 256 \
 --output_dir factpegasus --pretrain_model_type bart_base --tokenize_on_fly
+```
+
+# Acknowledgements
+The code is primarily adapted from the summarization example from [transformers](https://github.com/huggingface/transformers). We also borrowed code [FactCC](https://github.com/salesforce/factCC), and [info-nce-pytorch](https://github.com/RElbers/info-nce-pytorch).
+
+# Reference
+```BibTex
+@inproceedings{wan2022factpegasus,
+      title={FactPEGASUS: Factuality-Aware Pre-training and Fine-tuning for Abstractive Summarization}, 
+      author={Wan, David and Bansal, Mohit},
+      booktitle={NAACL 2022},
+      year={2022}
+}
 ```
