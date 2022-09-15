@@ -23,7 +23,7 @@ class EntityCorrector:
         summary = features["summary"]
         orig_summ = summary
 
-        document_tokens = features["document_tokens"]
+        document_tokens = features["document_tokens"] if "document_tokens" in features else None
         summary_tokens = features["summary_tokens"]
 
         # change summary tokens to dict with key being i
@@ -233,16 +233,20 @@ def main(args):
 
     dataset = load_from_disk(args.data_dir)
 
+    columns_to_remove = ["summary_tokens"]
+    if "document_tokens" in dataset["train"][0]:
+        columns_to_remove.append("document_tokens")
+
     dataset["train"] = dataset["train"].map(
         corrector.correct_hallucinations,
-        remove_columns=["document_tokens","summary_tokens"],
+        remove_columns=columns_to_remove,
         keep_in_memory=True,
         num_proc=32,
     )
 
     dataset["validation"] = dataset["validation"].map(
         corrector.correct_hallucinations,
-        remove_columns=["document_tokens","summary_tokens"],
+        remove_columns=columns_to_remove,
         keep_in_memory=True,
         num_proc=32,
     )

@@ -17,7 +17,7 @@ This repository contains PyTorch code and pre-trained models for FactPEGASUS.
 
 ## Fine-tuning
 ### Data
-The prepared dataset can be downloaded at: SOON
+The prepared dataset can be downloaded [here](https://drive.google.com/drive/folders/10qPm1kcf53DtEL1T7WpL4cyEgH7jlCXA?usp=sharing)
 
 Dataset can be loaded with `datasets.load_from_disk(dir)`, containing three Dataset object: `train`,`validation`, and `test`. Each Dataset contains `[document, document_ents,summary,summary_ents]`.
 
@@ -61,7 +61,7 @@ deepspeed --master_port=$PORT --include=localhost:$GPU_IDX src/main.py --fp16 \
 This should work without deepspeed as well by removing the deepspeed commands and arguments and the `--deepspeed` argument.
 
 ## Pretraining
-Pretrained model can be downloaded here: SOON
+Pretrained model can be downloaded [here](https://drive.google.com/drive/folders/10qPm1kcf53DtEL1T7WpL4cyEgH7jlCXA?usp=sharing)
 
 ### Data
 We show how to create 1000 training data with `realnewslike`, but this can be also applied to the full `C4` dataset.
